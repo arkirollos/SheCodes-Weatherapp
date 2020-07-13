@@ -1,0 +1,123 @@
+body {
+  padding: 65px 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: "Raleway", sans-serif;
+  font-stretch: narrower;
+  color: rgb(92, 92, 89);
+}
+.body {
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
+h2 {
+  font-size: 20px;
+  text-decoration: underline;
+}
+.currently {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 20px;
+  padding-left: 12px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  margin-top: -12px;
+  padding-top: 12px;
+  text-decoration: dashed;
+}
+.button-search {
+  border-radius: 4px;
+  border: 1px rgb(235, 232, 232);
+  background-color: rgb(6, 211, 234);
+  color: white;
+  padding: 5px 7px;
+  transition: all 200ms ease-in-out;
+  margin: 90 auto;
+  display: block;
+}
+.current-button {
+  border-radius: 5px;
+  border: 1px rgb(235, 232, 232);
+  background-color: rgb(242, 136, 90);
+  color: white;
+  padding: 5px 7px;
+  transition: all 200ms ease-in-out;
+  margin: 90 auto;
+  display: block;
+}
+
+.fas {
+  color: #fcfcfc;
+  margin-left: 10px;
+}
+.city {
+  font-size: 60px;
+  margin-left: 5px;
+  text-align: left;
+}
+.temp {
+  margin-left: 20px;
+  text-align: center;
+  display: block;
+  font-size: 30px;
+}
+.temperature {
+  font-size: 40px;
+  position: relative;
+  text-align: center;
+  display: block;
+  margin-left: 60px;
+}
+.unit {
+  position: relative;
+  text-align: center;
+  font-size: 18px;
+  margin-top: auto;
+  margin-bottom: 44px;
+}
+.wind {
+  font-style: italic;
+}
+.weatherType {
+  font-size: 45px;
+  display: block;
+  text-align: center;
+  margin-top: -12px;
+  margin-left: 60px;
+}
+
+.sun {
+  margin-top: -44px;
+  margin-left: 70px;
+}
+
+.metric-small {
+  font-size: 12px;
+}
+.weather {
+  margin-top: -16px;
+  font-size: 15px;
+}
+.week {
+  text-align: center;
+}
+
+.day {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 30px;
+}
+
+.tinypic {
+  margin-top: -20px;
+  width: 95px;
+}
+
+.smalltemp {
+  margin-top: 5px;
+  font-size: 17px;
+}
+
+.info {
+  margin-top: -15px;
+  font-size: 14px;
+}
