@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>WeatherApp</title>
+    <link rel="stylesheet" href="styles.css" />
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  </head>
+  <body>
+    <br />
+    <div class="container">
+      <form id="search-city" class="citybox">
+        <div class="row">
+          <div class="col-8">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="City"
+              id="find-weather"
+              autocomplete="off"
+            />
+          </div>
+          <div class="col-2">
+            <input type="submit" 
+            value="Search" 
+            class="button-search" 
+            id="submit-button"
+            />
+          </div>
+              <button class= "current-button"
+              id="current-location">Current Location</button>
+              </div>
+          </div>
+        </div>
+      </form>
+
+      <br />
+      <div class="body">
+        <div class="head">
+          <h2 id="full-date"
+          Friday, July 3 2020, 13:24></h2>
+          <p class="currently">Currently in</p>
+          <h1 class="city"
+            id="full-city">
+            Vancouver
+          </h1>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-5">
+              <h3 class="weatherType" id="description">Sunny</h3>
+
+              <span id="change-temp" class="temperature">79°</span>
+              <span id="fahrenheit-unit" class="unit"
+                ><a ="#" href=""><small>F°</small></a></span
+              >
+              <span id="celcius-unit" class="unit"
+                ><a ="#" href=""><small>C°</small></a></span
+              >
+
+              <p class="wind">
+                <br />
+                <br />
+
+                Wind:<span id="extrawind"></span>km/h
+                <br />
+                Humidity: <span id="extrahumidity"></span>%
+                <br />
+                Feels like: <span id="extrafeelslike"></span>º              </p>
+            </div>
+            <div class="col-2">
+              <img src="images/sun.svg" class="sun" width="280px" />
+            </div>
+          </div>
+        </div>
+        <hr />
+
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <div class="week">
+                <p class="day">Friday</p>
+                <img src="images/clouds-and-sun.svg" class="tinypic" />
+                <p class="smalltemp">
+                  23/17
+                  <span class="metric-small"><a href="#">°C </a>| °F </span>
+                </p>
+                <p class="weather">
+                  <strong>Partly Cloudy </strong>
+                  <br />
+                  <em>Wind: 3 mph</em>
+                  <br />
+                  <em>Humidity: 34%</em>
+                  <br />
+                  <em>Percipitation: 4%</em>
+                </p>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="week">
+                <p class="day">Saturday</p>
+                <img src="images/storm.svg" class="tinypic" />
+                <p class="smalltemp">
+                  22/15
+                  <span class="metric-small"><a href="#">°C </a>| °F </span>
+                </p>
+                <p class="weather">
+                  <strong>Thunderstorms </strong>
+                  <br />
+                  <em>Wind: 11 mph</em>
+                  <br />
+                  <em>Humidity: 77%</em>
+                  <br />
+                  <em>Percipitation: 89%</em>
+                </p>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="week">
+                <p class="day">Sunday</p>
+                <img src="images/sun.svg" class="tinypic" />
+                <p class="smalltemp">
+                  24/18
+                  <span class="metric-small"><a href="#">°C </a>| °F </span>
+                </p>
+                <p class="weather">
+                  <strong>Sunny </strong>
+                  <br />
+                  <em>Wind: 9 mph</em>
+                  <br />
+                  <em>Humidity: 53%</em>
+                  <br />
+                  <em>Percipitation: 5%</em>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+     function addZero(i) {
+        if (i < 10) {
+          i = "0" + i;
+        }
+        return i;
+      }
+
+      function currentDate(date) {
+        let hours = addZero(date.getHours());
+        let minutes = addZero(date.getMinutes());
+        let number = date.getDate();
+        let month = date.getMonth();
+
+        let months = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+        ];
+        month = months[date.getMonth()];
+
+        let days = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ];
+
+        let today = days[date.getDay()];
+
+        return `${today} ${number} ${month}, ${hours}:${minutes}`;
+      }
+
+      let now = new Date();
+      let date = document.querySelector("#full-date");
+      date.innerHTML = currentDate(now);
+
+
+
+      function displaydata(response) {
+        
+        document.querySelector("#full-city").innerHTML = response.data.name;
+        
+
+        
+        document.querySelector("#change-temp").innerHTML = Math.round(
+          response.data.main.temp
+        );
+
+        
+        let description = response.data.weather[0].description;
+        let weatherType = document.querySelector("#description");
+        description = description.charAt(0).toUpperCase() + description.slice(1);
+        weatherType.innerHTML = description;
+
+        document.querySelector("#extrahumidity").innerHTML = Math.round(
+          response.data.main.humidity
+        );
+
+        let windy = (document.querySelector("#extrawind").innerHTML = Math.round(
+          response.data.wind.speed
+        ));
+
+        let feelslike = (document.querySelector(
+          "#extrafeelslike"
+        ).innerHTML = Math.round(response.data.main.feels_like));
+      
+      }
+      function toSearch(city) {
+        let apiKey = "c3f2e22d068bc89a846c4b1c217f57c3";
+        let units = "metric";
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+
+        axios.get(apiUrl).then(displaydata);
+      }
+
+      function handleSubmit(event) {
+        event.preventDefault(); 
+        let city = document.querySelector("#find-weather").value;
+        toSearch(city);
+      }
+
+      let search = document.querySelector("#search-city");
+      search.addEventListener("submit",handleSubmit);
+
+
+      function convertFahrenheit(event) {
+          event.preventDefault();
+          let changeTemp = document.querySelector("#change-temp");
+          let degreeNumber= changeTemp.innerHTML;
+          degreeNumber= Number(degreeNumber);
+          let fahrenheit= Math.round((degreeNumber /5 ) * 9 + 32);
+        changeTemp.innerHTML = `${fahrenheit}`;
+        
+        }
+        function convertCelsius(event) {
+          event.preventDefault();
+          let changeTemp = document.querySelector("#change-temp");
+          let degreeNumber = changeTemp.innerHTML;
+          degreeNumber = Number(degreeNumber);
+          let celsius = Math.round(((degreeNumber - 32) * 5) / 9);
+          changeTemp.innerHTML = `${celsius}`;
+        }
+
+        let getFahrenheit = document.querySelector("#fahrenheit-unit");
+        getFahrenheit.addEventListener("click", convertFahrenheit);
+        let getCelsius = document.querySelector("#celcius-unit");
+        getCelsius.addEventListener("click", convertCelsius);
+
+
+      toSearch("Vancouver");
+
+      function showPosition(position) {
+        console.log(position.coords.latitude);
+        console.log(position.coords.longitude);
+
+        let apiKey = "c3f2e22d068bc89a846c4b1c217f57c3";
+        let units = "metric";
+        let latitude = position.coords.latitude;
+        let longitude = position.coords.longitude;
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+        console.log(apiUrl);
+
+        axios.get(apiUrl).then(displaydata);
+      }
+
+      function currentPosition(event) {
+        event.preventDefault();
+        navigator.geolocation.getCurrentPosition(showPosition);
+      }
+
+      let button = document.querySelector("#current-location");
+      button.addEventListener("click", currentPosition);
+
+
+  
+      
+
+     
+
+    </script>
+  </body>
+</html>
