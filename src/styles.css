@@ -39,20 +39,20 @@ h2 {
   border: 1px rgb(235, 232, 232);
   background-color: rgb(242, 136, 90);
   color: white;
-  padding: 5px 7px;
+  padding: 1px 3px;
   transition: all 200ms ease-in-out;
-  margin: 90 auto;
+  margin-right: 10 auto;
   display: block;
 }
 
 .fas {
   color: #fcfcfc;
-  margin-left: 5px;
+  margin-left: 2px;
   font-size: 40px;
 }
 .city {
   font-size: 60px;
-  margin-left: 5px;
+  margin-left: 50px;
   text-align: left;
 }
 .temp {
@@ -64,7 +64,7 @@ h2 {
 .temperature {
   font-size: 40px;
   position: relative;
-  text-align: center;
+  text-align: left;
   display: block;
   margin-left: 60px;
 }
@@ -83,7 +83,7 @@ h2 {
 .weatherType {
   font-size: 30px;
   display: block;
-  text-align: center;
+  text-align: celeftnter;
   margin-top: -12px;
   margin-left: 12px;
 }
