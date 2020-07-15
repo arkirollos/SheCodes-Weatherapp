@@ -73,7 +73,9 @@ h2 {
   font-size: 18px;
   margin-top: auto;
   margin-bottom: 44px;
+  cursor: pointer;
 }
+
 .wind {
   font-style: italic;
 }
