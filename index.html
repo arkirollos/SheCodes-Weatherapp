@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <title>WeatherApp</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="src/styles.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </head>
@@ -58,7 +58,9 @@
                         Feels like: <span id="extrafeelslike"></span>º </p>
                 </div>
                 <div class="col-2">
-                    <img src="images/sun.svg" class="sun" width="280px" />
+                    <img src="images/sun.svg" 
+                    class="sun" 
+                    id= "icon"/>
                 </div>
             </div>
         </div>
@@ -129,9 +131,9 @@
         </div>
     </div>
     </div>
-
-    <script>
-        function addZero(i) {
+    <a href="https://github.com/arkirollos/SheCodes-Weatherapp/commits?author=arkirollos"
+    target= "_blank"> Open-Source Code</a> <p> by Abbi Kirollos</p>
+    <script> function addZero(i) {
             if (i < 10) {
                 i = "0" + i;
             }
@@ -156,7 +158,7 @@
                 "September",
                 "October",
                 "November",
-                "December"
+                "December",
             ];
             month = months[date.getMonth()];
 
@@ -167,7 +169,7 @@
                 "Wednesday",
                 "Thursday",
                 "Friday",
-                "Saturday"
+                "Saturday",
             ];
 
             let today = days[date.getDay()];
@@ -179,23 +181,18 @@
         let date = document.querySelector("#full-date");
         date.innerHTML = currentDate(now);
 
-
-
         function displaydata(response) {
-
             document.querySelector("#full-city").innerHTML = response.data.name;
-
-
 
             document.querySelector("#change-temp").innerHTML = Math.round(
                 response.data.main.temp
             );
 
-
             let description = response.data.weather[0].description;
             let weatherType = document.querySelector("#description");
             description = description.charAt(0).toUpperCase() + description.slice(1);
             weatherType.innerHTML = description;
+            let iconElement=document.querySelector("#icon");
 
             document.querySelector("#extrahumidity").innerHTML = Math.round(
                 response.data.main.humidity
@@ -208,6 +205,11 @@
             let feelslike = (document.querySelector(
                 "#extrafeelslike"
             ).innerHTML = Math.round(response.data.main.feels_like));
+
+            iconElement.setAttribute("src",
+             `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+            );
+
 
         }
         function toSearch(city) {
@@ -227,7 +229,6 @@
         let search = document.querySelector("#search-city");
         search.addEventListener("submit", handleSubmit);
 
-
         function convertFahrenheit(event) {
             event.preventDefault();
             let changeTemp = document.querySelector("#change-temp");
@@ -235,7 +236,6 @@
             degreeNumber = Number(degreeNumber);
             let fahrenheit = Math.round((degreeNumber / 5) * 9 + 32);
             changeTemp.innerHTML = `${fahrenheit}`;
-
         }
         function convertCelsius(event) {
             event.preventDefault();
@@ -250,7 +250,6 @@
         getFahrenheit.addEventListener("click", convertFahrenheit);
         let getCelsius = document.querySelector("#celcius-unit");
         getCelsius.addEventListener("click", convertCelsius);
-
 
         toSearch("Vancouver");
 
@@ -275,9 +274,6 @@
 
         let button = document.querySelector("#current-location");
         button.addEventListener("click", currentPosition);
-
-    </script>
-    <a href="https://github.com/arkirollos/SheCodes-Weatherapp/commits?author=arkirollos">
-    Open-Source Code</a> <p> by Abbi Kirollos</p>
+</script>
 </body>
 </html>
