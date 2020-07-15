@@ -47,7 +47,8 @@ h2 {
 
 .fas {
   color: #fcfcfc;
-  margin-left: 10px;
+  margin-left: 5px;
+  font-size: 40px;
 }
 .city {
   font-size: 60px;
@@ -80,18 +81,20 @@ h2 {
   font-style: italic;
 }
 .weatherType {
-  font-size: 50px;
+  font-size: 30px;
   display: block;
   text-align: center;
   margin-top: -12px;
-  margin-left: 60px;
+  margin-left: 12px;
 }
 
 .sun {
-  margin-top: -44px;
-  margin-left: 70px;
+  margin-left: 10px;
   float: left;
   width: 350px;
+  display: block;
+  margin-top: -120px;
+  margin-bottom: 30px;
 }
 
 .metric-small {
