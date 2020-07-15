@@ -10,8 +10,8 @@ body {
   background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 }
 h2 {
-  font-size: 20px;
-  text-decoration: underline;
+  font-size: 21px;
+  font-style: italic;
 }
 .currently {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -47,8 +47,8 @@ h2 {
 
 .fas {
   color: #fcfcfc;
-  margin-left: 2px;
-  font-size: 40px;
+  margin-left: 7px;
+  font-size: 33px;
 }
 .city {
   font-size: 60px;
