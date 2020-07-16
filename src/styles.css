@@ -27,7 +27,7 @@ h2 {
 .button-search {
   border-radius: 3px;
   border: 1px rgb(235, 232, 232);
-  background-color: rgb(223, 170, 153);
+  background-color: rgb(220, 185, 174);
   color: white;
   padding: 5px 15px;
   transition: all 200ms ease-in-out;
@@ -36,15 +36,14 @@ h2 {
   display: block;
 }
 .current-button {
-  border-radius: 7px;
+  border-radius: 4px;
   border: 1px rgb(235, 232, 232);
   background-color: rgb(211, 117, 130);
   color: white;
-  padding: 0px 149px;
+  padding: 0px 5px;
   transition: all 200ms ease-in-out;
   margin-left: 9px;
-  margin-right: 2px;
-  display: block;
+  display: inline-block;
 }
 
 .fas {
@@ -66,7 +65,7 @@ h2 {
 .temperature {
   font-size: 40px;
   position: relative;
-  text-align: left;
+  text-align: center;
   display: block;
   margin-left: 60px;
 }
@@ -85,7 +84,7 @@ h2 {
 .weatherType {
   font-size: 30px;
   display: block;
-  text-align: celeftnter;
+  text-align: center;
   margin-top: -12px;
   margin-left: 12px;
 }
