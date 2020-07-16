@@ -59,6 +59,8 @@ function displaydata(response) {
   weatherType.innerHTML = description;
   let iconElement = document.querySelector("#icon");
 
+  celsiusTemperature = response.data.main.temp;
+
   document.querySelector("#extrahumidity").innerHTML = Math.round(
     response.data.main.humidity
   );
@@ -93,20 +95,23 @@ function handleSubmit(event) {
 let search = document.querySelector("#search-city");
 search.addEventListener("submit", handleSubmit);
 
+//chaninging units
 function convertFahrenheit(event) {
   event.preventDefault();
   let changeTemp = document.querySelector("#change-temp");
   let degreeNumber = changeTemp.innerHTML;
   degreeNumber = Number(degreeNumber);
-  let fahrenheit = Math.round((degreeNumber / 5) * 9 + 32);
+  let fahrenheit = Math.round((celsiusTemperature * 9) / 5 + 32);
   changeTemp.innerHTML = `${fahrenheit}`;
 }
+let celsiusTemperature = null;
+
 function convertCelsius(event) {
   event.preventDefault();
   let changeTemp = document.querySelector("#change-temp");
   let degreeNumber = changeTemp.innerHTML;
   degreeNumber = Number(degreeNumber);
-  let celsius = Math.round(((degreeNumber - 32) * 5) / 9);
+  let celsius = Math.round(celsiusTemperature);
   changeTemp.innerHTML = `${celsius}`;
 }
 
