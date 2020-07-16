@@ -210,10 +210,8 @@
             ).innerHTML = Math.round(response.data.main.feels_like));
 
             iconElement.setAttribute("src",
-             `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+             `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${response.data.weather[0].icon}.svg`
             );
-
-
         }
         function toSearch(city) {
             let apiKey = "c3f2e22d068bc89a846c4b1c217f57c3";
