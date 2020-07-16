@@ -57,6 +57,7 @@ function displaydata(response) {
   let weatherType = document.querySelector("#description");
   description = description.charAt(0).toUpperCase() + description.slice(1);
   weatherType.innerHTML = description;
+  let iconElement = document.querySelector("#icon");
 
   document.querySelector("#extrahumidity").innerHTML = Math.round(
     response.data.main.humidity
@@ -69,6 +70,11 @@ function displaydata(response) {
   let feelslike = (document.querySelector(
     "#extrafeelslike"
   ).innerHTML = Math.round(response.data.main.feels_like));
+
+  iconElement.setAttribute(
+    "src",
+    `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${response.data.weather[0].icon}.svg`
+  );
 }
 function toSearch(city) {
   let apiKey = "c3f2e22d068bc89a846c4b1c217f57c3";
