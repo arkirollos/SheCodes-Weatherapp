@@ -25,23 +25,25 @@ h2 {
   text-decoration: dashed;
 }
 .button-search {
-  border-radius: 4px;
+  border-radius: 3px;
   border: 1px rgb(235, 232, 232);
-  background-color: rgb(6, 211, 234);
+  background-color: rgb(223, 170, 153);
   color: white;
-  padding: 5px 7px;
+  padding: 5px 15px;
   transition: all 200ms ease-in-out;
-  margin: 90 auto;
+  margin-left: 8px;
+  margin-right: 10px;
   display: block;
 }
 .current-button {
-  border-radius: 5px;
+  border-radius: 7px;
   border: 1px rgb(235, 232, 232);
-  background-color: rgb(242, 136, 90);
+  background-color: rgb(211, 117, 130);
   color: white;
-  padding: 1px 3px;
+  padding: 0px 149px;
   transition: all 200ms ease-in-out;
-  margin-right: 10 auto;
+  margin-left: 9px;
+  margin-right: 2px;
   display: block;
 }
 
