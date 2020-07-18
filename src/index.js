@@ -1,32 +1,5 @@
-function addZero(i) {
-  if (i < 10) {
-    i = "0" + i;
-  }
-  return i;
-}
-
-function currentDate(date) {
-  let hours = addZero(date.getHours());
-  let minutes = addZero(date.getMinutes());
-  let number = date.getDate();
-  let month = date.getMonth();
-
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  month = months[date.getMonth()];
-
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -36,17 +9,15 @@ function currentDate(date) {
     "Friday",
     "Saturday",
   ];
-
-  let today = days[date.getDay()];
-
-  return `${today} ${number} ${month}, ${hours}:${minutes}`;
+  let day = days[date.getDay()];
+  return `${day} ${formatHours(timestamp)}`;
 }
 
 function formatHours(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
   if (hours < 10) {
-    hours = `0${minutes}`;
+    hours = `0${hours}`;
   }
   let minutes = date.getMinutes();
   if (minutes < 10) {
@@ -55,17 +26,14 @@ function formatHours(timestamp) {
   return `${hours}:${minutes}`;
 }
 
-let now = new Date();
-let date = document.querySelector("#full-date");
-date.innerHTML = currentDate(now);
-
 function displaydata(response) {
   document.querySelector("#full-city").innerHTML = response.data.name;
 
   document.querySelector("#change-temp").innerHTML = Math.round(
     response.data.main.temp
   );
-
+  let date = document.querySelector("#full-date");
+  date.innerHTML = formatDate(response.data.dt * 1000);
   let description = response.data.weather[0].description;
   let weatherType = document.querySelector("#description");
   description = description.charAt(0).toUpperCase() + description.slice(1);
@@ -107,9 +75,10 @@ function showForecast(response) {
       forecast.weather[0].icon
     }.svg"
       />
-
-    <div class="forecast-description">${forecast.weather[0].description} </div>
-    <div class="forecast-temp"><strong>${Math.round(
+    <div class="weather-forecast-temperature">${
+      forecast.weather[0].description
+    } </div>
+    <div class="weather-forecast-temperature"><strong>${Math.round(
       forecast.main.temp_max
     )}°</strong> ${Math.round(forecast.main.temp_min)}°</div>
   </div>
