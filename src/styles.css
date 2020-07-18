@@ -1,5 +1,5 @@
 body {
-  padding: 5px 5px;
+  padding: 0px 2px;
   max-width: 995px;
   margin: 0 auto;
   font-family: "Raleway", sans-serif;
@@ -22,7 +22,6 @@ h2 {
   margin-bottom: 16px;
   margin-top: -12px;
   padding-top: 12px;
-  text-decoration: dashed;
 }
 .button-search {
   border-radius: 3px;
