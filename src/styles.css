@@ -23,6 +23,10 @@ h2 {
   margin-top: -12px;
   padding-top: 12px;
 }
+.citybox {
+  margin: 0 auto;
+  position: relative;
+}
 .button-search {
   border-radius: 3px;
   border: 1px rgb(235, 232, 232);
@@ -42,7 +46,7 @@ h2 {
   padding: 1px 12px;
   transition: all 200ms ease-in-out;
   margin-left: 685px;
-  display: inline-block;
+  display: block;
 }
 
 .fas {
